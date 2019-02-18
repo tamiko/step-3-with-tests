@@ -41,8 +41,10 @@
 #include <deal.II/lac/precondition.h>
 
 #include <deal.II/numerics/data_out.h>
+
 #include <fstream>
 #include <iostream>
+#include <string>
 
 using namespace dealii;
 
@@ -52,7 +54,7 @@ class Step3
 public:
   Step3();
 
-  void run();
+  void run(std::string filename = "solution.gpl");
 
 
 private:
@@ -60,7 +62,7 @@ private:
   void setup_system();
   void assemble_system();
   void solve();
-  void output_results() const;
+  void output_results(std::string filename) const;
 
   Triangulation<2> triangulation;
   FE_Q<2>          fe;

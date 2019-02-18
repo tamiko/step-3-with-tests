@@ -129,26 +129,26 @@ void Step3::solve()
 
 
 
-void Step3::output_results() const
+void Step3::output_results(std::string filename) const
 {
   DataOut<2> data_out;
   data_out.attach_dof_handler(dof_handler);
   data_out.add_data_vector(solution, "solution");
   data_out.build_patches();
 
-  std::ofstream output("solution.gpl");
+  std::ofstream output(filename);
   data_out.write_gnuplot(output);
 }
 
 
 
-void Step3::run()
+void Step3::run(std::string filename)
 {
   make_grid();
   setup_system();
   assemble_system();
   solve();
-  output_results();
+  output_results(filename);
 }
 
 #endif /* STEP_3_CC */
