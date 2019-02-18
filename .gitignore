@@ -6,3 +6,6 @@ libsteplib.so
 Makefile
 solution.gpl
 step-3
+Testing
+*.debug
+*.release
